@@ -2,9 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const path = require("path");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const serverless = require("serverless-http");
 
 const app = express();
 
@@ -31,14 +29,12 @@ app.use("/api/payments", payments);
 app.use("/webhooks", webhooks);
 app.use("/api/menu", menuRoutes);
 
-
+// Test route
 app.get("/", (req, res) => {
   res.json({ message: "API is working on Vercel" });
 });
 
-console.log("hello")
 // DB connect
 connectDB();
 
-module.exports = app;
-module.exports.handler = serverless(app);
+module.exports = (req, res) => app(req, res);
