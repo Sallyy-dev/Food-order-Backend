@@ -9,7 +9,7 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
-connectDB();
+
 console.log("MONGO_URI is:", process.env.MONGO_URI);
 
 
