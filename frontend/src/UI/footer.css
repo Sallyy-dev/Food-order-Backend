@@ -1,0 +1,94 @@
+
+
+footer {
+  background: #0b0d17;
+  color: #d1d5db;
+  padding-top: 40px;
+  font-family: "Arial", sans-serif;
+  width: 100%;
+}
+
+footer h6 {
+  color: #ffb400;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: relative;
+}
+
+footer h6::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #ffb400;
+  margin-top: 6px;
+  border-radius: 2px;
+  animation: slideIn 1s ease forwards;
+}
+
+footer p,
+footer a {
+  color: #9ca3af;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+footer a:hover {
+  color: #ffb400;
+  padding-left: 5px;
+}
+
+footer i {
+  color: #ffb400;
+  margin-right: 10px;
+}
+
+footer .text-center {
+  background: rgba(255, 255, 255, 0.05);
+  margin-top: 30px;
+  padding: 15px 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40px;
+  }
+}
+
+/* Apply animation to footer sections */
+footer .row > div {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+footer .row > div:nth-child(1) {
+  animation-delay: 0.2s;
+}
+footer .row > div:nth-child(2) {
+  animation-delay: 0.4s;
+}
+footer .row > div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+footer .row > div:nth-child(4) {
+  animation-delay: 0.8s;
+}

@@ -1,0 +1,33 @@
+.Menue-section {
+  background-image: url('../images/408da7d640abc99b6edf6290110ecf4a706ecaa8 (2).png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+ padding-top: 150px;
+}
+.Menue-section h2 {
+color: #fff;
+z-index: 1;
+position: relative;
+text-align: center;
+font-size: 50px;
+font-weight: bold;
+}
+
+.Menue-shadow {
+  background-color: rgba(3, 8, 31, 0.9);
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.menue-gategory{
+  display: flex;
+  flex-wrap: wrap;
+}

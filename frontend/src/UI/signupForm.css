@@ -1,0 +1,95 @@
+
+.signup-container  {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background: #fff;
+padding: 50px;
+width: 100%;
+background-color: #0b0d17;
+  
+}
+
+
+.signup-box {
+  border: 2px solid #fc8a06;
+  border-radius: 5px;
+  padding: 40px 30px;
+  width: 350px;
+  text-align: center;
+  background: #fff;
+  margin-top: 80px;
+}
+
+
+.logo img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+
+.signup-box label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.signup-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+
+.signup-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #fc8a06;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-box button:hover {
+  background: #e67805;
+}
+
+
+.signin-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
+}
+
+.signin-link a {
+  color: #fc8a06;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signin-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+@media (width:320px) {
+.signup-box {
+
+  width: 300px;
+  
+}
+
+}
