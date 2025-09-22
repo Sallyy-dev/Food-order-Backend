@@ -14,7 +14,7 @@ export default function Menu() {
   const [categories, setCategories] = useState(["All"]);
 
   const API_URL = process.env.REACT_APP_API_URL;
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   // API Fetch
   useEffect(() => {
     fetch(`${API_URL}/menu/menu-types`)
@@ -22,7 +22,7 @@ export default function Menu() {
       .then((data) => data.success && setCategories(["All", ...data.data]))
       .catch((err) => console.error(err));
   }, []);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetch(`${API_URL}/foodItems`)
       .then((res) => res.json())

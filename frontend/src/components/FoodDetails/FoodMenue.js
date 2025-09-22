@@ -6,11 +6,11 @@ import "../../UI/Menue.css";
 const itemsPerPage = 8;
 
 export default function Menu() {
-  const [tab, setTab] = useState("All");
+  const [tab] = useState("All");
   const [page, setPage] = useState(1);
   const [selectedSizes, setSelectedSizes] = useState({});
   const [items, setItems] = useState([]);
-  const [categories, setCategories] = useState(["All"]);
+  const [setCategories] = useState(["All"]);
   const [cart, setCart] = useState([]);
 
   const API_URL = process.env.REACT_APP_API_URL;
@@ -19,6 +19,7 @@ export default function Menu() {
   const isSmallScreen = useMediaQuery("(max-idth:400px)");
   const isMediumScreen = useMediaQuery("(max-width:500px)");
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
   // API FETCH
   useEffect(() => {
     fetch(`${API_URL}/menu/menu-types`)
@@ -26,7 +27,7 @@ export default function Menu() {
       .then((data) => data.success && setCategories(["All", ...data.data]))
       .catch((err) => console.error(err));
   }, []);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetch(`${API_URL}/foodItems`)
       .then((res) => res.json())
