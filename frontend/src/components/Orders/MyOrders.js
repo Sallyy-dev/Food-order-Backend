@@ -16,6 +16,7 @@ export default function MyOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const isMediumScreen = useMediaQuery("(max-width:900px)");
@@ -23,7 +24,7 @@ export default function MyOrders() {
   // fetch orders
   const fetchOrders = async () => {
     try {
-      const res = await fetch("https://food-order-backend-pied.vercel.app/api/orders/my-orders", {
+      const res = await fetch(`${API_URL}/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -42,7 +43,7 @@ export default function MyOrders() {
   // cancel order
   const cancelOrder = async (id) => {
     try {
-      const res = await fetch(`https://food-order-backend-pied.vercel.app/api/orders/${id}/cancel`, {
+      const res = await fetch(`${API_URL}/orders/${id}/cancel`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -65,7 +66,7 @@ export default function MyOrders() {
   // update order status
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch(`https://food-order-backend-pied.vercel.app/api/orders/${id}/status`, {
+      const res = await fetch(`${API_URL}/orders/${id}/status`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

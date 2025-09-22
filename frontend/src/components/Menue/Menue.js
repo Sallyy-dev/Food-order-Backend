@@ -13,16 +13,18 @@ export default function Menu() {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState(["All"]);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   // API Fetch
   useEffect(() => {
-    fetch("https://food-order-backend-pied.vercel.app/api/menu/menu-types")
+    fetch(`${API_URL}/menu/menu-types`)
       .then((res) => res.json())
       .then((data) => data.success && setCategories(["All", ...data.data]))
       .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    fetch("https://food-order-backend-pied.vercel.app/api/foodItems")
+    fetch(`${API_URL}/foodItems`)
       .then((res) => res.json())
       .then((data) => setItems(data))
       .catch((err) => console.error(err));

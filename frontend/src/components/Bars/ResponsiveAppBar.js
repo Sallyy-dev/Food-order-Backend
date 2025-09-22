@@ -38,6 +38,8 @@ function ResponsiveAppBar() {
   const [cartOpen, setCartOpen] = React.useState(false);
   const [opacity, setOpacity] = React.useState(1);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const navigate = useNavigate();
   const { cart, increaseQty, decreaseQty, removeItem } = useCart();
 
@@ -49,7 +51,7 @@ function ResponsiveAppBar() {
   // Handel Logout User
   const handleLogout = async () => {
     try {
-      await fetch("https://food-order-backend-pied.vercel.app/api/users/logout", {
+      await fetch(`${API_URL}/users/logout`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

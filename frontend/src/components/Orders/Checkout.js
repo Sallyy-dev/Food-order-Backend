@@ -43,6 +43,8 @@ export default function Checkout({
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [successOpen, setSuccessOpen] = useState(false);
+
+  const API_URL = process.env.REACT_APP_API_URL;
   // Token
   const token = userTokenProp || localStorage.getItem("token") || null;
   const total = useMemo(() => subtotalComputed, [subtotalComputed]);
@@ -90,7 +92,7 @@ export default function Checkout({
     setLoading(true);
     // API Fetch
     try {
-      const res = await fetch("https://food-order-backend-pied.vercel.app/api/orders", {
+      const res = await fetch(`${API_URL}/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

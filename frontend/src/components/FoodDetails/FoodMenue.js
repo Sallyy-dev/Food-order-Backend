@@ -13,20 +13,22 @@ export default function Menu() {
   const [categories, setCategories] = useState(["All"]);
   const [cart, setCart] = useState([]);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   // Responsive media query
   const isSmallScreen = useMediaQuery("(max-idth:400px)");
   const isMediumScreen = useMediaQuery("(max-width:500px)");
 
   // API FETCH
   useEffect(() => {
-    fetch("https://food-order-backend-pied.vercel.app/api/menu/menu-types")
+    fetch(`${API_URL}/menu/menu-types`)
       .then((res) => res.json())
       .then((data) => data.success && setCategories(["All", ...data.data]))
       .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    fetch("https://food-order-backend-pied.vercel.app/api/foodItems")
+    fetch(`${API_URL}/foodItems`)
       .then((res) => res.json())
       .then((data) => setItems(data))
       .catch((err) => console.error(err));

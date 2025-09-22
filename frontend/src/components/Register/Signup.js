@@ -17,7 +17,7 @@ function SignupForm() {
   const [loading, setLoading] = useState(null);
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-
+const API_URL = process.env.REACT_APP_API_URL;
   const handelSumbit = async (event) => {
     event.preventDefault();
     setError(null);
@@ -29,7 +29,7 @@ function SignupForm() {
         password: inputForm.password,
         confirmPassword: inputForm.confirmPassword,
       };
-      const res = await fetch("https://food-order-backend-pied.vercel.app/api/users/register", {
+      const res = await fetch(`${API_URL}/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

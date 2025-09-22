@@ -14,6 +14,8 @@ function LoginForm() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handelSumbit = async (event) => {
     event.preventDefault();
     setError(null);
@@ -25,7 +27,7 @@ function LoginForm() {
         password: inputForm.password,
       };
 
-      const res = await fetch("https://food-order-backend-pied.vercel.app/api/users/login", {
+      const res = await fetch(`${API_URL}/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
