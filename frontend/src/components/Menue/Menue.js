@@ -21,14 +21,14 @@ export default function Menu() {
       .then((res) => res.json())
       .then((data) => data.success && setCategories(["All", ...data.data]))
       .catch((err) => console.error(err));
-  }, []);
+  }, [API_URL, setCategories]);
 // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetch(`${API_URL}/foodItems`)
       .then((res) => res.json())
       .then((data) => setItems(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [API_URL, setItems]);
 
   // Tabs Handel
   const filteredItems =

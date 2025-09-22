@@ -18,7 +18,7 @@ function FoodMenuCard({ item, onSelectSize }) {
   const sizeObj = item.sizes.find((s) => s.size === selectedSize);
   const price = sizeObj ? sizeObj.price : item.price;
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity] = useState(1);
   // Animation
   const [fly, setFly] = useState(null);
   const { addToCart } = useCart();

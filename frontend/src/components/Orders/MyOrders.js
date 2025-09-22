@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Box,
   Typography,
@@ -22,7 +22,7 @@ export default function MyOrders() {
   const isMediumScreen = useMediaQuery("(max-width:900px)");
 
   // fetch orders
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       const res = await fetch(`${API_URL}/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -34,11 +34,11 @@ export default function MyOrders() {
       console.error(err);
       setLoading(false);
     }
-  };
-// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [API_URL, token]);
+
   useEffect(() => {
     fetchOrders();
-  }, []);
+  }, [fetchOrders]);
 
   // cancel order
   const cancelOrder = async (id) => {
@@ -129,7 +129,7 @@ export default function MyOrders() {
     <Box
       sx={{
         minHeight: "100vh",
-        width:"100%",
+        width: "100%",
         background: "#1e1e1e",
         p: { xs: 4, sm: 10 },
       }}
@@ -142,7 +142,7 @@ export default function MyOrders() {
           mb: 3,
           fontWeight: "bold",
           textAlign: "center",
-          marginTop:"35px",
+          marginTop: "35px",
           fontSize: isSmallScreen ? "24px" : isMediumScreen ? "30px" : "35px",
         }}
       >
